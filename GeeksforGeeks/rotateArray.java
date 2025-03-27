@@ -3,12 +3,19 @@ class Solution {
     static void rotateArr(int arr[], int d) {
         // add your code here
         int n=arr.length;
-        for(int i=0;i<d;i++){
-            int fir=arr[0];
-            for(int j=0;j<n-1;j++){
-                arr[j]=arr[j+1];
-            }
-            arr[n-1]=fir;
+       d=d%n;
+       reverse(arr,0,d-1);
+       reverse(arr,d,n-1);
+       reverse(arr,0,n-1);
+    }
+    static void reverse(int[] arr, int start,int end){
+        while(start<end){
+            int temp=arr[start];
+            arr[start]=arr[end];
+            arr[end]=temp;
+            start++;
+            end--;
         }
     }
+    
 }
